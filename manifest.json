@@ -1,0 +1,61 @@
+{
+	"name": "MyExtensions_we",
+	"description" : "Extension for bilibili and change baidu style",
+	"version": "2.1.1",
+	"manifest_version": 2,
+	"icons": {
+		"16": "img/icon/icon.png",
+		"48": "img/icon/icon.png",
+		"128": "img/icon/icon.png"
+	},
+	"browser_action": {
+		"default_icon": "img/icon/icon.png",
+		"default_title": "Extension for we",
+		"default_popup": "html/popup.html"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"https://www.bilibili.com/video/*",
+				"https://www.bilibili.com/bangumi/play/*"
+			],
+			"js": [
+				"scripts/script_bilibili.js"
+			]
+		},
+		{
+			"matches": [
+				"https://www.baidu.com/*"
+			],
+			"js": [
+				"scripts/script_baidu.js"
+			],
+			"run_at": "document_start"
+		},
+		{
+			"matches": [
+				"https://ke.qq.com/webcourse/*"
+			],
+			"js": [
+				"scripts/script_tenxun.js"
+			],
+			"run_at": "document_end"
+		}
+	],
+	"permissions":
+	[
+		"contextMenus",
+		"storage",
+		"tabs",
+		"activeTab",
+		"https://www.baidu.com/*",
+		"https://*/*"
+	],
+	"background":
+	{
+		"scripts": ["scripts/background.js"],
+		"persistent":true
+	},
+	"homepage_url": "https://www.baidu.com"
+
+}
