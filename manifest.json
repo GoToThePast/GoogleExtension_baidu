@@ -30,7 +30,7 @@
 			"js": [
 				"scripts/script_baidu.js"
 			],
-			"run_at": "document_start"
+			"run_at": "document_end"
 		},
 		{
 			"matches": [

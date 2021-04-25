@@ -11,15 +11,18 @@ window.onload=function() {
         div_wang.style.position = "fixed";
         div_wang.style.zIndex = "-100";
         div_wang.style.width = "100%";
-        div_wang.style.height = window.screen.height + "px";
+        //div_wang.style.height = window.screen.height + "px";
+		div_wang.style.height = "100%";
         chrome.storage.sync.get("imgIndex",function (para) {
             let img_wang=5;
             if (para.imgIndex!=null&&img_wang>0&&img_wang<=10)img_wang=parseInt(para.imgIndex);
             //设置背景壁纸
-            div_wang.style.backgroundImage = "url('https://resource.4tuogen.com/resource/wangwei/img/backimg/"+img_wang+".jpg')";
-            div_wang.style.backgroundSize = "100% 100%";
-            head_wang.style.backgroundImage = "url('https://resource.4tuogen.com/resource/wangwei/img/backimg/"+img_wang+".jpg')";
-            head_wang.style.background = "border-box";
+            div_wang.style.backgroundImage = "url('https://gitee.com/iamtrying/chrome-extension-we/raw/master/img/"+img_wang+".jpg')";
+			div_wang.style.backgroundSize = "cover";
+            head_wang.style.backgroundImage = "url('https://gitee.com/iamtrying/chrome-extension-we/raw/master/img/"+img_wang+".jpg')";
+            head_wang.style.backgroundSize = "cover";
+			//覆盖background属性，使背景透明
+			head_wang.style.background = "border-box";
         });
         
         //消除主页上多余的样式
@@ -130,6 +133,7 @@ window.onload=function() {
         timeDelay_wang=setTimeout(function () {
             var page_wang = document.getElementById("page");
             if (page_wang) {
+				document.getElementById("head").style.background=" "
 				//样式已经改变则取消改变
                 if (getComputedStyle(document.getElementById("page"), null)["paddingLeft"] == of_wang+"px") return;
 

@@ -106,6 +106,9 @@ chrome.runtime.onMessage.addListener(function (request,sender,sendResponse) {
 					"::-webkit-scrollbar {"+
 						"width: 0px;"+
 						"height: 0px;"+
+					"}"+
+					"#head {"+
+						"background: border-box !important;\n"+
 					"}"
             });
 
